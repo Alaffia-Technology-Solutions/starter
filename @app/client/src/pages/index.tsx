@@ -4,6 +4,7 @@ const { Text, Title, Paragraph } = Typography;
 import { SharedLayout } from "@app/components";
 import { useSharedQuery } from "@app/graphql";
 import { NextPage } from "next";
+import TaskList from "./taskList";
 
 // Convenience helper
 const Li = ({ children, ...props }: any) => (
@@ -18,7 +19,10 @@ const Home: NextPage = () => {
     <SharedLayout title="" query={query}>
       <Row justify="space-between" gutter={32}>
         <Col xs={24} sm={16}>
-          <Title data-cy="homepage-header">
+
+          <TaskList />
+
+          {/* <Title data-cy="homepage-header">
             Welcome to the PostGraphile starter
           </Title>
           <Paragraph>
@@ -294,7 +298,10 @@ const Home: NextPage = () => {
               Sponsor Graphile Today
             </Button>
           </Paragraph>
-          <Paragraph>Thank you! 🙏</Paragraph>
+          <Paragraph>Thank you! 🙏</Paragraph> */}
+
+
+
         </Col>
       </Row>
     </SharedLayout>

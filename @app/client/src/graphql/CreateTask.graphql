@@ -1,0 +1,17 @@
+mutation CreateTask(
+  $title: String!,
+  $description: String!,
+  $status: Status!
+) {
+  createTask(
+    input: {
+      task: {
+        title: $title
+        description: $description
+        status: $status
+      }
+    }
+  ) {
+    clientMutationId
+  }
+}

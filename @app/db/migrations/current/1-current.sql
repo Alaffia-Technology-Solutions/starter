@@ -67,6 +67,34 @@ relevant operations on them. The tables will appear when you uncomment the
 -- );
 -- alter table app_public.topics enable row level security;
 
+drop table if exists app_public.tasks;
+drop type if exists app_public.status;
+create type app_public.status as enum ('to_do', 'in_progress', 'done');
+
+-- create table 'tasks'
+create table app_public.tasks (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  description text not null,
+  status status not null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+grant
+  select,
+  insert,
+  update,
+  delete
+on app_public.tasks to :DATABASE_VISITOR;
+
+-- create policy select_all on app_public.posts for select using (true);
+-- create policy manage_own on app_public.posts for all using (author_id = app_public.current_user_id());
+-- create policy manage_as_admin on app_public.posts for all using (exists (select 1 from app_public.users where is_admin is true and id = app_public.current_user_id()));
+
+
+
+
 -- create table app_public.posts (
 --   id               serial primary key,
 --   author_id        uuid default app_public.current_user_id() references app_public.users(id) on delete set null,

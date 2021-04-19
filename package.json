@@ -39,9 +39,10 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {
     "abort-controller": "^3.0.0",
-    "graphql": "^15.4.0",
+    "graphql": "^15.5.0",
     "lerna": "^3.20.2",
-    "string-width": "^4.2.0"
+    "string-width": "^4.2.0",
+    "urql": "^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

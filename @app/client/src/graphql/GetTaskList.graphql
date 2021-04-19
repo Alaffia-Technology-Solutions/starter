@@ -1,0 +1,12 @@
+query GetTaskList {
+  tasks {
+    nodes {
+      id
+      title
+      description
+      status
+      createdAt
+      updatedAt
+    }
+  }
+}
